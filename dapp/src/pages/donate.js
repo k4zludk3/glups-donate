@@ -1,38 +1,42 @@
-import Head from "next/head";
-import Link from "next/link";
-import Footer from "@/components/Footer";
-import { useState } from "react";
-import { getCampaign, donate } from "../services/Web3Service";
+import Head from "next/head"; // Componente Head do Next.js para modificar o <head> do HTML
+import Link from "next/link"; // Componente para navegação de rota interna
+import Footer from "@/components/Footer"; // Componente personalizado de rodapé
+import { useState } from "react"; // Hook useState do React para gerenciamento de estado
+import { getCampaign, donate } from "../services/Web3Service"; // Funções de serviço para interagir com contratos inteligentes
 
 export default function Donate() {
 
-    const [campaign, setCampaign] = useState({});
+    const [campaign, setCampaign] = useState({}); // Estados para gerenciar as informações da campanha, valor da doação e mensagens de feedback
     const [donation, setDonation] = useState(0);
     const [message, setMessage] = useState("");
 
+    // Função para atualizar o ID da campanha com base na entrada do usuário
     function onChangeId(evt) {
         campaign.id = evt.target.value;
     }
-
+    
+    // Função para buscar detalhes de uma campanha usando o ID fornecido
     function btnSearchClick() {
-        setMessage("Buscando...aguarde...");
-        getCampaign(campaign.id)
+        setMessage("Buscando...aguarde..."); // Define uma mensagem temporária de busca
+        getCampaign(campaign.id) // Chama a função de serviço para buscar a campanha
             .then(result => {
-                setMessage("");
-                result.id = campaign.id;
-                setCampaign(result);
+                setMessage(""); // Limpa a mensagem após a busca
+                result.id = campaign.id; // Garante que o ID está incluído nos dados da campanha
+                setCampaign(result); // Atualiza o estado com os detalhes da campanha
             })
-            .catch(err => setMessage(err.message));
+            .catch(err => setMessage(err.message)); // Define a mensagem de erro em caso de falha
     }
 
+    // Função para atualizar o valor da doação com base na entrada do usuário
     function onChangeValue(evt) {
         setDonation(evt.target.value);
     }
 
+    // Função para realizar uma doação para a campanha atual
     function btnDonateClick() {
         setMessage("Doando...aguarde...");
         donate(campaign.id, donation)
-            .then(tx => setMessage(`Doação realizada, obrigado. Em alguns minutos o saldo será atualizado.`))
+            .then(tx => setMessage(`Doação realizada. Em alguns minutos o saldo será atualizado.`))
             .catch(err => setMessage(err.message));
     }
 
