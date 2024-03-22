@@ -17,7 +17,7 @@
 				"type": "string"
 			}
 		],
-		"name": "addOng",
+		"name": "addCampaign",
 		"outputs": [],
 		"stateMutability": "nonpayable",
 		"type": "function"

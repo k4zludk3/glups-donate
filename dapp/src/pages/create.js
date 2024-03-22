@@ -2,22 +2,23 @@ import Head from "next/head";
 import Link from "next/link";
 import Footer from "@/components/Footer";
 import { useState } from "react";
-import { addOng } from "../services/Web3Service";
+import { addCampaign, getLastCampaignId } from "../services/Web3Service";
 import React from 'react';
 import styles from '@/styles/teste.module.css';
 
-export default function CreateOng() {
-    const [ong, setOng] = useState({ nome: '', causa: '', cnpj: '' });
+export default function CreateCampaign() {
+    const [Campaign, setCampaign] = useState({});
     const [message, setMessage] = useState("");
 
     function onInputChange(evt) {
-        setOng(prevState => ({ ...prevState, [evt.target.name]: evt.target.value }));
+        setCampaign(prevState => ({ ...prevState, [evt.target.id]: evt.target.value }));
     }
 
     function btnSaveClick() {
         setMessage("Salvando...aguarde...");
-        addOng(ong)
-            .then(() => setMessage(`ONG ${ong.nome} cadastrada com sucesso!`))
+        addCampaign(Campaign)
+        .then(tx => getLastCampaignId())
+            .then(() => setMessage(`ONG cadastrada com sucesso! Utilize esse ID ${id} para receber as doações.`))
             .catch(err => {
                 console.error(err);
                 setMessage(err.message);
@@ -51,15 +52,15 @@ export default function CreateOng() {
                         <hr/>
                         <div className="col-6">
                             <div className="form-floating mb-3">
-                                <input type="text" id="nome" name="nome" className="form-control" value={ong.nome} onChange={onInputChange} />
+                                <input type="text" id="nome" name="nome" className="form-control" value={Campaign.nome} onChange={onInputChange} />
                                 <label htmlFor="nome">Nome da Organização:</label>
                             </div>
                             <div className="form-floating mb-3">
-                                <input type="text" id="causa" name="causa" className="form-control" value={ong.causa} onChange={onInputChange} />
+                                <input type="text" id="causa" name="causa" className="form-control" value={Campaign.causa} onChange={onInputChange} />
                                 <label htmlFor="causa">Causa:</label>
                             </div>
                             <div className="form-floating mb-3">
-                                <input type="text" id="cnpj" name="cnpj" className="form-control" value={ong.cnpj} onChange={onInputChange} />
+                                <input type="text" id="cnpj" name="cnpj" className="form-control" value={Campaign.cnpj} onChange={onInputChange} />
                                 <label htmlFor="cnpj">CNPJ:</label>
                             </div>
                         </div>
