@@ -9,7 +9,7 @@ export default function Footer() {
                     <a href="/" className="nav-link px-2 text-body-secondary">Início</a>
                 </li>
                 <li className="nav-item">
-                    <a href="/create" className="nav-link px-2 text-body-secondary">Nova Campanha</a>
+                    <a href="/create" className="nav-link px-2 text-body-secondary">Cadastrar ONG</a>
                 </li>
                 <li className="nav-item">
                     <a href="/donate" className="nav-link px-2 text-body-secondary">Doar</a>

@@ -18,7 +18,7 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>GLUPS | Index</title>
+        <title>GLUPS | Home</title>
         <meta charSet='utf-8' />
         <meta name="description" content="" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -47,7 +47,10 @@ export default function Home() {
           <div className="col-lg-6">
             <h1 className="display-5 fw-bold text-body-emphasis lh-1 mb-3">GLUPS</h1>
             <p className='lead'>Uma plataforma descentralizada de doações.</p>
-            <p className='lead mb-3'>Autentique-se com sua carteira, crie sua campanha para receber doações ou doe para campanhas existentes.</p>
+            <h3>1°Passo:</h3>
+            <p className='lead mb-3'>Conecte sua carteira</p>
+            <h3>2°Passo:</h3>
+            <p className='lead mb-3'>Cadastre sua ONG ou seja um doador</p>
             {
               !wallet
                 ? (
