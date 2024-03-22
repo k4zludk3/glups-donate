@@ -24,7 +24,7 @@ function getContract() {
 
 export function addCampaign(campaign) {
     const contract = getContract();
-    return contract.methods.addCampaign(campaign.title, campaign.description, campaign.videoUrl, campaign.imageUrl).send();
+    return contract.methods.addCampaign(campaign.nome, campaign.causa, campaign.cnpj).send();
 }
 
 export function getLastCampaignId() {

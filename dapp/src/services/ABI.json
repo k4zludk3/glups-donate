@@ -3,22 +3,17 @@
 		"inputs": [
 			{
 				"internalType": "string",
-				"name": "title",
+				"name": "nome",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "description",
+				"name": "causa",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "videoUrl",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "imageUrl",
+				"name": "cnpj",
 				"type": "string"
 			}
 		],
@@ -70,22 +65,17 @@
 			},
 			{
 				"internalType": "string",
-				"name": "title",
+				"name": "nome",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "description",
+				"name": "causa",
 				"type": "string"
 			},
 			{
 				"internalType": "string",
-				"name": "videoUrl",
-				"type": "string"
-			},
-			{
-				"internalType": "string",
-				"name": "imageUrl",
+				"name": "cnpj",
 				"type": "string"
 			},
 			{
