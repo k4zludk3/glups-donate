@@ -50,7 +50,7 @@ export default function Home() {
             <h3>1°Passo:</h3>
             <p className='lead mb-3'>Conecte sua carteira</p>
             <h3>2°Passo:</h3>
-            <p className='lead mb-3'>Cadastre sua ONG ou seja um doador</p>
+            <p className='lead mb-3'>Cadastre sua ONG ou seja um doador<br></br></p>
             {
               !wallet
                 ? (
